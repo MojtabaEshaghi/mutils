@@ -1,7 +1,11 @@
 library mutils;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+
+
+part 'ui/ui.dart';
+
+
+class MUtils{}
