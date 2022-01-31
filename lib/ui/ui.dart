@@ -2,7 +2,7 @@ part of '../mutils.dart';
 
 
 
-class MUI {
+extension Mui on MInterface {
   ThemeData appTheme(Color color, String? fontFamily) {
     return ThemeData(
         primarySwatch: generateMaterialColor(color), fontFamily: fontFamily);
@@ -42,4 +42,5 @@ class MUI {
           shadeValue(color.green, factor),
           shadeValue(color.blue, factor),
           1);
+
 }

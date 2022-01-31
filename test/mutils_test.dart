@@ -4,10 +4,9 @@ import 'package:mutils/mutils.dart';
 
 void main() {
   test("test material color ", () {
-    final mUtils = MUI();
     expect(
-        mUtils.appTheme(Color(0xff636987), null),
+        Mut.appTheme(Color(0xff636987), null),
         ThemeData(
-            primarySwatch: mUtils.generateMaterialColor(Color(0xff636987))));
+            primarySwatch: Mut.generateMaterialColor(Color(0xff636987))));
   });
 }
