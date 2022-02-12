@@ -1,9 +1,13 @@
 part of '../mutils.dart';
 
 extension Mui on MInterface {
-  ThemeData appTheme( {required Color color, String? fontFamily}) {
+  ThemeData appTheme(
+      {required Color color, String? fontFamily, Color? secondaryColor}) {
     return ThemeData(
-        primarySwatch: generateMaterialColor(color), fontFamily: fontFamily);
+      primarySwatch: generateMaterialColor(color),
+      fontFamily: fontFamily,
+      colorScheme: ColorScheme.fromSwatch().copyWith(secondary: secondaryColor),
+    );
   }
 
   MaterialColor generateMaterialColor(Color color) {
