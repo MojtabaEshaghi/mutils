@@ -1,12 +1,17 @@
 part of '../mutils.dart';
 
+
+
 extension Mui on MInterface {
   ThemeData appTheme(
       {required Color color, String? fontFamily, Color? secondaryColor}) {
+    var primarySwatchColors = generateMaterialColor(color);
     return ThemeData(
-      primarySwatch: generateMaterialColor(color),
+      primarySwatch: primarySwatchColors,
       fontFamily: fontFamily,
-      colorScheme: ColorScheme.fromSwatch().copyWith(secondary: secondaryColor),
+      colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: primarySwatchColors).copyWith(
+          secondary: secondaryColor),
     );
   }
 
@@ -28,20 +33,22 @@ extension Mui on MInterface {
   int _tintValue(int value, double factor) =>
       max(0, min((value + (255 - value * factor)).round(), 255));
 
-  Color tintColor(Color color, double factor) => Color.fromRGBO(
-      _tintValue(color.red, factor),
-      _tintValue(color.green, factor),
-      _tintValue(color.blue, factor),
-      1);
+  Color tintColor(Color color, double factor) =>
+      Color.fromRGBO(
+          _tintValue(color.red, factor),
+          _tintValue(color.green, factor),
+          _tintValue(color.blue, factor),
+          1);
 
   int shadeValue(int value, double factor) =>
       max(0, min(value - (value * factor).round(), 255));
 
-  Color shadeColor(Color color, double factor) => Color.fromRGBO(
-      shadeValue(color.red, factor),
-      shadeValue(color.green, factor),
-      shadeValue(color.blue, factor),
-      1);
+  Color shadeColor(Color color, double factor) =>
+      Color.fromRGBO(
+          shadeValue(color.red, factor),
+          shadeValue(color.green, factor),
+          shadeValue(color.blue, factor),
+          1);
 }
 
 extension MTextStyle on MInterface {
